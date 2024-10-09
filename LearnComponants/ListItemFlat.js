@@ -26,7 +26,7 @@ const ListItemFlat = () => {
 
   return (
     <View>
-      <Text style={{fontSize:30}}>Sample</Text>
+      <Text style={{fontSize:30}}>Item FlatList</Text>
       <FlatList
         data={users}
         keyExtractor={(item) => item.id.toString()} // Ensure unique keys
