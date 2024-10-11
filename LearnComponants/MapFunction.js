@@ -28,7 +28,7 @@ const MapFunction = () => {
       <Text style={{ fontSize: 30 }}>Sample</Text>
       <ScrollView style={{marginBottom:80}}>
         {users.map((item) => <Text style={styles.item}>{item.name}</Text>)}
-        </ScrollView>
+      </ScrollView>
     </View>
   );
 };

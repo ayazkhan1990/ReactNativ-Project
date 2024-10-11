@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 const GridList = () => {
   const users = [
@@ -25,12 +25,13 @@ const GridList = () => {
   return (
     <View>
       <Text style={{ fontSize: 30, padding:10}}>Grid List</Text>
-
+<ScrollView>
       <View style={{flex:1, flexDirection:'row', flexWrap:'wrap'}}>
         {
           users.map((item) => <Text style={styles.item}>{ item.name }</Text>)
         }
-      </View>
+        </View>
+        </ScrollView>
    </View>
   )
 }

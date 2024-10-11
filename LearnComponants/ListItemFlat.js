@@ -1,50 +1,60 @@
 import React from 'react';
-import { StyleSheet, View, FlatList, Text } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 
 const ListItemFlat = () => {
-
   const users = [
-    { id: 1, name: 'ayaz' },
-    { id: 2, name: 'khan' },
-    { id: 3, name: 'ayaz' },
-    { id: 4, name: 'khan' },
-    { id: 5, name: 'ayaz' },
-    { id: 6, name: 'khan' },
-    { id: 7, name: 'ayaz' },
-    { id: 8, name: 'khan' },
-    { id: 9, name: 'ayaz' },
-    { id: 10, name: 'khan' },
-    { id: 11, name: 'ayaz1' },
-    { id: 12, name: 'khan2' },
-    { id: 13, name: 'ayaz3' },
-    { id: 14, name: 'khan4' },
-    { id: 15, name: 'ayaz5' },
-    { id: 16, name: 'Nehakhan1' },
-    { id: 16, name: 'Nehakhan2' },
-    { id: 16, name: 'Nehakhan3' },
+    { id: 1, name: 'ayaz1', email: 'ayaz@gmail.com' },
+    { id: 2, name: 'khan', email: 'ayazkhan1@gmai.com' },
+    { id: 3, name: 'ayaz', email: 'ayazkhan2@gmai.com' },
+    { id: 4, name: 'khan', email: 'ayazkhan3@gmai.com' },
+    { id: 5, name: 'ayaz', email: 'ayazkhan4@gmai.com' },
+    { id: 6, name: 'khan', email: 'ayazkhan5@gmai.com' },
+    { id: 7, name: 'ayaz', email: 'ayazkhan6@gmai.com' },
+    { id: 8, name: 'khan', email: 'ayazkhan7@gmai.com' },
+    { id: 9, name: 'ayaz', email: 'ayazkhan8@gmai.com' },
+    { id: 10, name: 'khan', email: 'ayazkhan9@gmai.com' },
   ];
 
   return (
     <View>
-      <Text style={{fontSize:30}}>Item FlatList</Text>
+      <Text style={styles.title}>Grid List</Text>
       <FlatList
         data={users}
-        keyExtractor={(item) => item.id.toString()} // Ensure unique keys
-        renderItem={({ item }) =>
-          <Text style={styles.item}>{item.name}</Text>}
+        keyExtractor={(item) => item.id.toString()}  // Ensure unique keys
+          // Number of columns for grid layout
+        renderItem={({ item }) => (
+          <View style={styles.box}>
+            <Text style={styles.item}>{item.id}</Text>
+            <Text style={styles.item}>{item.name}</Text>
+          </View>
+        )}
       />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  title: {
+    fontSize: 30,
+    padding: 10,
+    textAlign: 'center'
+  },
   item: {
+    justifyContent: 'center',
+    alignItems: 'center',
     borderWidth: 1,
-    borderColor:"blue",
+    borderColor: "blue",
     fontSize: 20,
     textAlign: 'center',
-    padding: 10,
-    margin:10,
+    width: '50%',  // Adjusted width for grid items
+    height: 30,
+
+  },
+  box: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap:'wrap',
+    margin: 5,  // Space between grid items
   },
 });
 
